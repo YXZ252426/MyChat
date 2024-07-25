@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
+        }
+        #chat-container {
+            width: 400px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        #chat {
+            flex: 1;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            overflow-y: scroll;
+        }
+        #message-container {
+            display: flex;
+            padding: 10px;
+        }
+        #message {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            font-size: 14px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<div id="chat-container">
+    <div id="chat"></div>
+    <div id="message-container">
+        <input type="text" id="message" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    const chat = document.getElementById('chat');
+    const messageInput = document.getElementById('message');
+
+    const socket = new WebSocket('ws://localhost:8080/chat');
+
+    socket.onmessage = function(event) {
+        const messageElement = document.createElement('div');
+        messageElement.textContent = event.data;
+        messageElement.classList.add('message');
+        chat.appendChild(messageElement);
+        chat.scrollTop = chat.scrollHeight; // 自动滚动到最新消息
+    };
+
+    function sendMessage() {
+        const message = messageInput.value;
+        if (message.trim() !== '') {
+            socket.send(message);
+            messageInput.value = '';
+        }
+    }
+</script>
+</body>
+</html>
