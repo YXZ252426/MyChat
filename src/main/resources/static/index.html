@@ -29,12 +29,14 @@
             padding: 20px;
             border-bottom: 1px solid #ddd;
             overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
         }
         #message-container {
             display: flex;
             padding: 10px;
         }
-        #message {
+        #username {
             flex: 1;
             padding: 10px;
             border: 1px solid #ddd;
@@ -42,12 +44,22 @@
             outline: none;
             font-size: 14px;
         }
+        #message {
+            flex: 2;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            font-size: 14px;
+            margin-right: 10px;
+        }
         button {
             background: #007bff;
             color: white;
             border: none;
             padding: 10px 15px;
-            margin-left: 10px;
+            margin-left: 7px;
+            margin-right: 7px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
@@ -59,7 +71,17 @@
             margin-bottom: 10px;
             padding: 10px;
             border-radius: 5px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+        .message.left {
             background: #f1f1f1;
+            align-self: flex-start;
+        }
+        .message.right {
+            background: #007bff;
+            color: white;
+            align-self: flex-end;
         }
     </style>
 </head>
@@ -67,29 +89,47 @@
 <div id="chat-container">
     <div id="chat"></div>
     <div id="message-container">
+        <input type="text" id="username" placeholder="Your name" />
         <input type="text" id="message" placeholder="Type your message..." />
-        <button onclick="sendMessage()">Send</button>
     </div>
+    <button onclick="sendMessage()">Send</button>
 </div>
 
 <script>
     const chat = document.getElementById('chat');
     const messageInput = document.getElementById('message');
+    const usernameInput = document.getElementById('username');
+    let currentUser = null;
 
     const socket = new WebSocket('ws://localhost:8080/chat');
 
     socket.onmessage = function(event) {
+        const data = JSON.parse(event.data);
         const messageElement = document.createElement('div');
-        messageElement.textContent = event.data;
+        messageElement.textContent = `${data.username}: ${data.message}`;
         messageElement.classList.add('message');
+
+        if (data.username === currentUser) {
+            messageElement.classList.add('right');
+        } else {
+            messageElement.classList.add('left');
+        }
+
         chat.appendChild(messageElement);
         chat.scrollTop = chat.scrollHeight; // 自动滚动到最新消息
     };
 
     function sendMessage() {
+        const username = usernameInput.value;
         const message = messageInput.value;
-        if (message.trim() !== '') {
-            socket.send(message);
+
+        if (username.trim() !== '' && message.trim() !== '') {
+            if (!currentUser) {
+                currentUser = username;
+            }
+
+            const data = { username: username, message: message };
+            socket.send(JSON.stringify(data));
             messageInput.value = '';
         }
     }
