@@ -1,6 +1,5 @@
 package com.example.mychat;
 
-
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -25,14 +24,21 @@ public class ChatHandler extends TextWebSocketHandler {
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         // 解析收到的消息
-        Map<String, String> data = objectMapper.readValue(message.getPayload(), Map.class);
-        String username = data.get("username");
-        String userMessage = data.get("message");
+        Map<String, Object> data = objectMapper.readValue(message.getPayload(), Map.class);
+        String type = (String) data.get("type");
+        String username = (String) data.get("username");
 
-        // 创建一个包含用户名和消息的 Map
-        Map<String, String> jsonMessageMap = new HashMap<>();
+        Map<String, Object> jsonMessageMap = new HashMap<>();
+        jsonMessageMap.put("type", type);
         jsonMessageMap.put("username", username);
-        jsonMessageMap.put("message", userMessage);
+
+        if ("message".equals(type)) {
+            String userMessage = (String) data.get("message");
+            jsonMessageMap.put("message", userMessage);
+        } else if ("image".equals(type)) {
+            String image = (String) data.get("image");
+            jsonMessageMap.put("image", image);
+        }
 
         // 将 Map 转换为 JSON 字符串
         String jsonMessage = objectMapper.writeValueAsString(jsonMessageMap);
