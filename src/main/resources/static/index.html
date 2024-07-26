@@ -106,6 +106,7 @@
 <body>
 <div id="chat-container">
     <div id="chat"></div>
+    <div id="online-count">在线人数: 0</div>
     <div id="message-container">
         <input type="text" id="username" placeholder="Your name" />
         <input type="text" id="message" placeholder="Type your message..." />
@@ -145,10 +146,23 @@
             } else {
                 messageElement.classList.add('left');
             }
+        }else if(data.type==='onlineCount'){
+            document.getElementById('online-count').textContent = `在线人数: ${data.count}`;
         }
 
         chat.appendChild(messageElement);
         chat.scrollTop = chat.scrollHeight; // 自动滚动到最新消息
+        socket.onopen = function() {
+            console.log('Connected to the server');
+        };
+
+        socket.onclose = function() {
+            console.log('Disconnected from the server');
+        };
+
+        window.onbeforeunload = function() {
+            socket.close(); // Ensure the socket is closed when the user leaves the page
+        };
     };
 
     function sendMessage() {
@@ -170,7 +184,7 @@
         const file = event.target.files[0];
 
         // 限制图片大小为2MB
-        const maxSize = 2 * 1024 * 1024;
+        const maxSize = 10 * 1024 * 1024;
         if (file.size > maxSize) {
             alert("The file is too large. Please select a file smaller than 2MB.");
             return;

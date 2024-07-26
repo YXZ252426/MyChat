@@ -15,10 +15,13 @@ import java.util.Map;
 public class ChatHandler extends TextWebSocketHandler {
     private final List<WebSocketSession> sessions = new ArrayList<>();
     private final ObjectMapper objectMapper = new ObjectMapper();
+    private int onlineCount = 0;
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         sessions.add(session);
+        onlineCount++;
+        broadcastOnlineCount();
     }
 
     @Override
@@ -52,5 +55,18 @@ public class ChatHandler extends TextWebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         sessions.remove(session);
+        onlineCount--;
+        broadcastOnlineCount();
+    }
+    private void broadcastOnlineCount() throws Exception {
+        Map<String, Object> jsonMessageMap = new HashMap<>();
+        jsonMessageMap.put("type", "onlineCount");
+        jsonMessageMap.put("count", onlineCount);
+
+        String jsonMessage = objectMapper.writeValueAsString(jsonMessageMap);
+
+        for (WebSocketSession webSocketSession : sessions) {
+            webSocketSession.sendMessage(new TextMessage(jsonMessage));
+        }
     }
 }
