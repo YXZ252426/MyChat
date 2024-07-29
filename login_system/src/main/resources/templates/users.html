@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .table-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .btn-primary, .btn-danger {
+            width: 80px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        .add-user-btn {
+            margin-left: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.delete-button').click(function() {
+                var userId = $(this).data('id');
+                console.log('User ID:', userId);
+                if (confirm('Are you sure you want to delete this user?')) {
+                    $.ajax({
+                        url: '/delete/' + userId,
+                        type: 'GET',
+                        success: function(result) {
+                            alert('User deleted successfully');
+                            $('#' + userId).remove();
+                        },
+                        error: function(err) {
+                            alert('Error deleting user');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/index}">Registration and Login System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12 table-container">
+            <!-- 欢迎消息 -->
+            <div class="alert alert-success" role="alert">
+                欢迎回来, <span th:text="${userDto.email}">用户</span>!
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="text-center mb-0">List of Registered Users</h2>
+                <form class="d-flex" th:action="@{/users}" method="get">
+                    <input class="form-control me-2" type="search" placeholder="Search by email" name="email" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <a class="btn btn-success add-user-btn" th:href="@{/add-user}">Add User</a>
+                <button class="btn btn-primary add-user-btn" onclick="joinChat()">Chat!</button> <!-- 新增加入聊天按钮 -->
+            </div>
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${userPage.list}" th:id="${user.id}">
+                    <td th:text="${user.id}">No ID</td>
+                    <td th:text="${user.firstName}">No First Name</td>
+                    <td th:text="${user.lastName}">No Last Name</td>
+                    <td th:text="${user.email}">No Email</td>
+                    <td>
+                        <button class="btn btn-danger delete-button" th:data-id="${user.id}">Delete</button>
+                        <a class="btn btn-primary" th:href="@{/edit/{id}(id=${user.id})}">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-between">
+                <div>
+                    Page [[${userPage.pageNum} + 1]] of [[${userPage.pages}]]
+                </div>
+                <div>
+                    <ul class="pagination">
+                        <li class="page-item" th:classappend="${userPage.hasPreviousPage} ? '': 'disabled'">
+                            <a class="page-link" th:href="@{/users(page=${userPage.pageNum - 1}, size=${userPage.pageSize}, email=${param.email})}">Previous</a>
+                        </li>
+                        <li class="page-item" th:each="i : ${#numbers.sequence(1, userPage.pages)}"
+                            th:classappend="${userPage.pageNum + 1 == i} ? 'active' : ''">
+                            <a class="page-link" th:href="@{/users(page=${i - 1}, size=${userPage.pageSize}, email=${param.email})}">[[${i}]]</a>
+                        </li>
+                        <li class="page-item" th:classappend="${userPage.hasNextPage} ? '': 'disabled'">
+                            <a class="page-link" th:href="@{/users(page=${userPage.pageNum + 1}, size=${userPage.pageSize}, email=${param.email})}">Next</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+<script>
+    function joinChat() {
+        // 获取当前用户信息
+        var currentUser = {
+            firstName: '[[${userDto.firstName}]]',
+            lastName: '[[${userDto.lastName}]]',
+
+        };
+
+        // 发送用户信息到 http://localhost:9090
+        fetch('http://localhost:9090/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(currentUser)
+        }).then(response => {
+            if (response.ok) {
+                // 在新窗口打开聊天界面
+                window.open("http://localhost:9090", "_blank");
+            } else {
+                alert('Failed to send user information to chat server');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+</script>
+</body>
+</html>
