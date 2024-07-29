@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8f38849a-1fa2-4672-a0b5-bc8d242ed03b" name="更改" comment="mychat1.3.1.md上线!!!&#10;支持的图片还是有限&#10;实现了在线人数统计功能，页面还没美化">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chatroom/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chatroom/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/CrudApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/config/SpringSecurity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/entity/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/repository/UserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/security/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/mapper/RoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/mapper/UserRoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/edit_user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/registerInUsers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mychat/ChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/ChatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mychat/ImageChatApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/ImageChatApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mychat/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/版本介绍/mychat1.0.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/版本介绍/mychat1.1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/版本介绍/mychat1.2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/版本介绍/mychat1.3.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$/MyChat" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
+  <component name="PerforceDirect.Settings">
+    <option name="CHARSET" value="无" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2jigxuu1stTRvAIfAU4cIn1GDif" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.CrudApplication.executor": "Run",
+    "Spring Boot.ImageChatApplication.executor": "Run",
+    "git-widget-placeholder": "login__chat__try",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/YYXZ/Desktop/mychat/login_system/src/main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql_aurora_aws"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\YYXZ\Desktop\mychat\login_system\src\main" />
+      <recent name="C:\Users\YYXZ\Desktop\mychat\login_system\src\main\java" />
+      <recent name="C:\Users\YYXZ\Desktop\mychat" />
+      <recent name="C:\Users\YYXZ\Desktop\mychat\src\mychat" />
+      <recent name="C:\Users\YYXZ\Desktop\mychat\src\login_system" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\YYXZ\Desktop\mychat\src\main\java\com\example\crud" />
+      <recent name="C:\Users\YYXZ\Desktop\mychat\src\main\resources\forchat" />
+      <recent name="C:\Users\YYXZ\Desktop\mychat\src\main\resources" />
+      <recent name="C:\Users\YYXZ\Desktop\mychat\src\main\resources\static\版本介绍" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.mychat" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ImageChatApplication">
+    <configuration name="CrudApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="login_system" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.crud.CrudApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.crud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImageChatApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="chatroom" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.mychat.ImageChatApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.CrudApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="8f38849a-1fa2-4672-a0b5-bc8d242ed03b" name="更改" comment="" />
+      <created>1721875562823</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721875562823</updated>
+      <workItem from="1721875563872" duration="8171000" />
+      <workItem from="1721890297129" duration="13207000" />
+      <workItem from="1721957984549" duration="6428000" />
+      <workItem from="1721965909400" duration="29000" />
+      <workItem from="1721972399843" duration="897000" />
+      <workItem from="1721973308423" duration="8252000" />
+      <workItem from="1721982440616" duration="7776000" />
+      <workItem from="1722134694586" duration="196000" />
+      <workItem from="1722216110538" duration="2318000" />
+      <workItem from="1722218531755" duration="2754000" />
+      <workItem from="1722221304835" duration="20242000" />
+    </task>
+    <task id="LOCAL-00001" summary="mychat1.0正式上线！！&#10;实现了本地网页端的简单文字聊天功能">
+      <option name="closed" value="true" />
+      <created>1721879333559</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721879333559</updated>
+    </task>
+    <task id="LOCAL-00002" summary="mychat1.1正式上线！！！&#10;区分了不同用户&#10;聊天界面更新，类似微信界面效果">
+      <option name="closed" value="true" />
+      <created>1721889311846</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1721889311847</updated>
+    </task>
+    <task id="LOCAL-00003" summary="mychat1.2上线！&#10;调整了页面布局，实现竖直滑动条&#10;支持图片传输，运用图片压缩技术">
+      <option name="closed" value="true" />
+      <created>1721905652746</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721905652746</updated>
+    </task>
+    <task id="LOCAL-00004" summary="mychat1.3.1.md上线!!!&#10;支持的图片还是有限&#10;实现了在线人数统计功能，页面还没美化">
+      <option name="closed" value="true" />
+      <created>1721965801535</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721965801535</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="mychat1.0正式上线！！&#10;实现了本地网页端的简单文字聊天功能" />
+    <MESSAGE value="mychat1.1正式上线！！！&#10;区分了不同用户&#10;聊天界面更新，类似微信界面效果" />
+    <MESSAGE value="mychat1.2上线！&#10;调整了页面布局，实现竖直滑动条&#10;支持图片传输，运用图片压缩技术" />
+    <MESSAGE value="mychat1.3.1.md上线!!!&#10;支持的图片还是有限&#10;实现了在线人数统计功能，页面还没美化" />
+    <option name="LAST_COMMIT_MESSAGE" value="mychat1.3.1.md上线!!!&#10;支持的图片还是有限&#10;实现了在线人数统计功能，页面还没美化" />
+  </component>
+</project>
