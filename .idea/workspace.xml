@@ -4,53 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f38849a-1fa2-4672-a0b5-bc8d242ed03b" name="更改" comment="mychat1.3.1.md上线!!!&#10;支持的图片还是有限&#10;实现了在线人数统计功能，页面还没美化">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chatroom/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chatroom/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/CrudApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/config/SpringSecurity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/dto/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/entity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/entity/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/repository/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/repository/UserRoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/security/CustomUserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/mapper/RoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/mapper/UserRoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/edit_user.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/registerInUsers.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mychat/ChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/ChatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mychat/ImageChatApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/ImageChatApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mychat/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/WebSocketConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/版本介绍/mychat1.0.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/版本介绍/mychat1.1.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/版本介绍/mychat1.2.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/版本介绍/mychat1.3.md" beforeDir="false" />
+    <list default="true" id="8f38849a-1fa2-4672-a0b5-bc8d242ed03b" name="更改" comment="测试用">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/081760a3-5dcf-411e-b1e9-4d3cd403497b.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/081760a3-5dcf-411e-b1e9-4d3cd403497b/storage_v2/_src_/schema/login_system.xQcH9w.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatroom/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatroom/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,13 +36,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="无" />
-  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -93,39 +51,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.CrudApplication.executor": "Run",
-    "Spring Boot.ImageChatApplication.executor": "Run",
-    "git-widget-placeholder": "login__chat__try",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/YYXZ/Desktop/mychat/login_system/src/main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.CrudApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ImageChatApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;login__chat__try&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/YYXZ/Desktop/mychat/login_system/src/main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql_aurora_aws"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql_aurora_aws&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\YYXZ\Desktop\mychat\login_system\src\main" />
@@ -197,7 +155,9 @@
       <workItem from="1722134694586" duration="196000" />
       <workItem from="1722216110538" duration="2318000" />
       <workItem from="1722218531755" duration="2754000" />
-      <workItem from="1722221304835" duration="20242000" />
+      <workItem from="1722221304835" duration="24247000" />
+      <workItem from="1722303213046" duration="279000" />
+      <workItem from="1722303500591" duration="2378000" />
     </task>
     <task id="LOCAL-00001" summary="mychat1.0正式上线！！&#10;实现了本地网页端的简单文字聊天功能">
       <option name="closed" value="true" />
@@ -231,7 +191,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721965801535</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="测试用">
+      <option name="closed" value="true" />
+      <created>1722248083804</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722248083804</updated>
+    </task>
+    <task id="LOCAL-00006" summary="测试用">
+      <option name="closed" value="true" />
+      <created>1722248092814</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722248092814</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +230,7 @@
     <MESSAGE value="mychat1.1正式上线！！！&#10;区分了不同用户&#10;聊天界面更新，类似微信界面效果" />
     <MESSAGE value="mychat1.2上线！&#10;调整了页面布局，实现竖直滑动条&#10;支持图片传输，运用图片压缩技术" />
     <MESSAGE value="mychat1.3.1.md上线!!!&#10;支持的图片还是有限&#10;实现了在线人数统计功能，页面还没美化" />
-    <option name="LAST_COMMIT_MESSAGE" value="mychat1.3.1.md上线!!!&#10;支持的图片还是有限&#10;实现了在线人数统计功能，页面还没美化" />
+    <MESSAGE value="测试用" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试用" />
   </component>
 </project>

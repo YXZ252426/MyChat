@@ -10,7 +10,7 @@
             font-family: 'Roboto', sans-serif;
             display: flex;
             justify-content: center;
-            align-items: end;
+            align-items: flex-end; /* 改为 flex-end */
             height: 100vh;
             margin: 0;
             background: #f0f0f0;
@@ -79,25 +79,26 @@
         .message {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: flex-start; /* 默认左对齐 */
             margin-bottom: 10px;
-            padding: 15px;
+            padding: 2px;
             border-radius: 5px;
-            max-width: 70%;
+            max-width: 80%;
             word-wrap: break-word;
-            font-size: 20px;
+            font-size: 16px;
         }
         .message.right {
-            align-items: flex-end;
+            align-self: flex-end; /* 右对齐 */
             background: #007bff;
             color: white;
         }
         .message.left {
             background: #f1f1f1;
+            align-self: flex-start;
         }
         .message.username {
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
         .image-message img {
             max-width: 100%;
@@ -125,7 +126,6 @@
     const username = userDto.firstName + ' ' + userDto.lastName;
     const chat = document.getElementById('chat');
     const messageInput = document.getElementById('message');
-    let currentUser = username;
 
     const socket = new WebSocket('ws://localhost:9090/chat');
 
@@ -143,8 +143,8 @@
             textElement.textContent = data.message;
             textElement.classList.add('message');
             messageElement.appendChild(textElement);
-
-            if (username === currentUser) {
+            messageElement.classList.add("message")
+            if (username === data.username) {
                 messageElement.classList.add('right');
             } else {
                 messageElement.classList.add('left');
@@ -160,7 +160,7 @@
             messageElement.appendChild(img);
             messageElement.classList.add('message', 'image-message');
 
-            if (username === currentUser) {
+            if (username === data.username) {
                 messageElement.classList.add('right');
             } else {
                 messageElement.classList.add('left');
@@ -189,7 +189,7 @@
         const message = messageInput.value;
 
         if (message.trim() !== '') {
-            const data = { type: 'message', username: currentUser, message: message };
+            const data = { type: 'message', username: username, message: message };
             socket.send(JSON.stringify(data));
             messageInput.value = '';
         }
@@ -241,7 +241,7 @@
                 const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7); // 70% 的质量压缩
 
                 // 发送压缩后的图片数据
-                const data = { type: 'image', username: currentUser, image: compressedDataUrl };
+                const data = { type: 'image', username: username, image: compressedDataUrl };
                 socket.send(JSON.stringify(data));
             };
         };
