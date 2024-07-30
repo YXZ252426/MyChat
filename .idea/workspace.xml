@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f38849a-1fa2-4672-a0b5-bc8d242ed03b" name="更改" comment="测试用">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/081760a3-5dcf-411e-b1e9-4d3cd403497b.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/081760a3-5dcf-411e-b1e9-4d3cd403497b/storage_v2/_src_/schema/login_system.xQcH9w.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8f38849a-1fa2-4672-a0b5-bc8d242ed03b" name="更改" comment="测试用2">
       <change beforePath="$PROJECT_DIR$/chatroom/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatroom/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/target/classes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login_system/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +151,7 @@
       <workItem from="1722218531755" duration="2754000" />
       <workItem from="1722221304835" duration="24247000" />
       <workItem from="1722303213046" duration="279000" />
-      <workItem from="1722303500591" duration="2378000" />
+      <workItem from="1722303500591" duration="2706000" />
     </task>
     <task id="LOCAL-00001" summary="mychat1.0正式上线！！&#10;实现了本地网页端的简单文字聊天功能">
       <option name="closed" value="true" />
@@ -207,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722248092814</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="测试用2">
+      <option name="closed" value="true" />
+      <created>1722306191350</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722306191350</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +233,7 @@
     <MESSAGE value="mychat1.2上线！&#10;调整了页面布局，实现竖直滑动条&#10;支持图片传输，运用图片压缩技术" />
     <MESSAGE value="mychat1.3.1.md上线!!!&#10;支持的图片还是有限&#10;实现了在线人数统计功能，页面还没美化" />
     <MESSAGE value="测试用" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试用" />
+    <MESSAGE value="测试用2" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试用2" />
   </component>
 </project>
