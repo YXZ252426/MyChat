@@ -15,10 +15,6 @@ import java.util.List;
 public class UserDto
 {
     @NotEmpty
-    private String firstName;
-    @NotEmpty
-    private String lastName;
-
-
+    private String name;
  // 添加角色字段
 }

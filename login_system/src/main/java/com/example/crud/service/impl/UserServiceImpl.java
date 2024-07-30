@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUser(UserDto userDto) {
         User user = new User();
-        user.setName(userDto.getFirstName() + " " + userDto.getLastName());
+        user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
         // encrypt the password using spring security
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
@@ -67,14 +67,10 @@ public class UserServiceImpl implements UserService {
     }
     private UserDto mapToUserDto(User user) {
         UserDto userDto = new UserDto();
-        String[] str = user.getName().split(" ");
         userDto.setId(user.getId());
-        userDto.setFirstName(str[0]);
-        userDto.setLastName(str[1]);
+        userDto.setName(user.getName());
         userDto.setEmail(user.getEmail());
-        //设置身份！！
-        userDto.setEmail(user.getEmail());
-
+        userDto.setPassword(passwordEncoder.encode(user.getPassword()));
         List<Role> roles = roleRepository.findRolesByUserId(user.getId());
         List<String> roleNames = roles.stream()
                 .map(Role::getName)
@@ -98,9 +94,12 @@ public class UserServiceImpl implements UserService {
         }
         return mapToUserDto(user);
     }
-    @Override
-    public UserDto findUserByEmail(String email){
-        User user=userRepository.findByEmail(email);
+
+    public UserDto findUserByEmail(String email) {
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
+            return null;
+        }
         return mapToUserDto(user);
     }
     @Override
@@ -110,7 +109,7 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             throw new IllegalArgumentException("Invalid user Id: " + userDto.getId());
         }
-        user.setName(userDto.getFirstName() + " " + userDto.getLastName());
+        user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
         userRepository.updateUser(user);
     }//是不是可以搞一个，只有管理员可以修改用户权限

@@ -71,7 +71,7 @@
             display: flex;
             flex-direction: column;
             margin-bottom: 10px;
-            max-width: 80%;
+            max-width: 100%;
         }
         .message-container.right {
             align-items: flex-end;
@@ -122,7 +122,7 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
     var userDto = /*[[${userDto}]]*/ {};
-    const username = userDto.firstName + ' ' + userDto.lastName;
+    const username = userDto.name;
     const chat = document.getElementById('chat');
     const messageInput = document.getElementById('message');
 
@@ -166,6 +166,8 @@
                 messageContainer.classList.add('left');
                 messageElement.classList.add('left');
             }
+        }else if (data.type === 'onlineCount') {
+            document.getElementById('online-count').textContent = `在线人数: ${data.count}`;
         }
 
         messageContainer.appendChild(messageElement);
@@ -174,7 +176,7 @@
     };
 
     socket.onopen = function() {
-        console.log('Connected to the server');
+        socket.send(JSON.stringify({ type: 'join', userName: username }));
     };
 
     socket.onclose = function() {

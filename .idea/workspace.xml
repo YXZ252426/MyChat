@@ -4,8 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f38849a-1fa2-4672-a0b5-bc8d242ed03b" name="更改" comment="测试用2">
+    <list default="true" id="8f38849a-1fa2-4672-a0b5-bc8d242ed03b" name="更改" comment="测试用3">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/java/com/example/mychat/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chatroom/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatroom/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/src/main/java/com/example/crud/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/src/main/resources/templates/edit_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/edit_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/src/main/resources/templates/registerInUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/registerInUsers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/src/main/resources/templates/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/target/classes/com/example/crud/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/target/classes/com/example/crud/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/target/classes/com/example/crud/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/target/classes/com/example/crud/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/target/classes/templates/edit_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/target/classes/templates/edit_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/target/classes/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/target/classes/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/target/classes/templates/registerInUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/target/classes/templates/registerInUsers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_system/target/classes/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/login_system/target/classes/templates/users.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +171,7 @@
       <workItem from="1722218531755" duration="2754000" />
       <workItem from="1722221304835" duration="24247000" />
       <workItem from="1722303213046" duration="279000" />
-      <workItem from="1722303500591" duration="2706000" />
+      <workItem from="1722303500591" duration="12164000" />
     </task>
     <task id="LOCAL-00001" summary="mychat1.0正式上线！！&#10;实现了本地网页端的简单文字聊天功能">
       <option name="closed" value="true" />
@@ -209,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722306191350</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="测试用3">
+      <option name="closed" value="true" />
+      <created>1722306264023</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722306264023</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,6 +262,17 @@
     <MESSAGE value="mychat1.3.1.md上线!!!&#10;支持的图片还是有限&#10;实现了在线人数统计功能，页面还没美化" />
     <MESSAGE value="测试用" />
     <MESSAGE value="测试用2" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试用2" />
+    <MESSAGE value="测试用3" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试用3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
