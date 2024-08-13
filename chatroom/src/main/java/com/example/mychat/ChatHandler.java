@@ -1,27 +1,23 @@
 package com.example.mychat;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ChatHandler extends TextWebSocketHandler {
-    private final List<WebSocketSession> sessions = new ArrayList<>();
+    private final Map<String, WebSocketSession> userSessions = new ConcurrentHashMap<>();
+    private final Map<WebSocketSession, String> sessionUsers = new ConcurrentHashMap<>();
     private final ObjectMapper objectMapper = new ObjectMapper();
     private int onlineCount = 0;
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-        sessions.add(session);
-        onlineCount++;
-        broadcastOnlineCount();
+        // 在连接建立时不做操作，等待接收用户ID
     }
 
     @Override
@@ -29,35 +25,61 @@ public class ChatHandler extends TextWebSocketHandler {
         // 解析收到的消息
         Map<String, Object> data = objectMapper.readValue(message.getPayload(), Map.class);
         String type = (String) data.get("type");
-        String username = (String) data.get("username");
+        String userId = (String) data.get("userId");
 
-        Map<String, Object> jsonMessageMap = new HashMap<>();
-        jsonMessageMap.put("type", type);
-        jsonMessageMap.put("username", username);
-
-        if ("message".equals(type)) {
-            String userMessage = (String) data.get("message");
-            jsonMessageMap.put("message", userMessage);
-        } else if ("image".equals(type)) {
-            String image = (String) data.get("image");
-            jsonMessageMap.put("image", image);
+        if ("join".equals(type)) {
+            userSessions.put(userId, session);
+            sessionUsers.put(session, userId);
+            onlineCount++;
+            broadcastOnlineCount();
+            broadcastUserList();
+        } else if ("private".equals(type)) {
+            handlePrivateMessage(data,session);
+        } else if ("broadcast".equals(type)) {
+            handleBroadcastMessage(data, session);
         }
+    }
 
-        // 将 Map 转换为 JSON 字符串
-        String jsonMessage = objectMapper.writeValueAsString(jsonMessageMap);
+    private void handlePrivateMessage(Map<String, Object> data, WebSocketSession senderSession) throws Exception {
+        String contentType = (String) data.get("contentType");
+        String targetUserId = (String) data.get("targetUserId");
+        WebSocketSession targetSession = userSessions.get(targetUserId);
 
-        // 将消息广播给所有连接的客户端
-        for (WebSocketSession webSocketSession : sessions) {
-            webSocketSession.sendMessage(new TextMessage(jsonMessage));
+        if ("message".equals(contentType)) {
+            String message = objectMapper.writeValueAsString(data);
+
+            // 发送消息给目标用户
+            if (targetSession != null && targetSession.isOpen()) {
+                targetSession.sendMessage(new TextMessage(message));
+            }
+
+            // 发送消息给自己
+            if (senderSession != null && senderSession.isOpen()) {
+                senderSession.sendMessage(new TextMessage(message));
+            }
+        }
+    }
+
+
+    private void handleBroadcastMessage(Map<String, Object> data, WebSocketSession senderSession) throws Exception {
+        for (WebSocketSession session : userSessions.values()) {
+                    session.sendMessage(new TextMessage(objectMapper.writeValueAsString(data)));
+
         }
     }
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-        sessions.remove(session);
-        onlineCount--;
-        broadcastOnlineCount();
+        String userId = sessionUsers.get(session);
+        if (userId != null) {
+            userSessions.remove(userId);
+            sessionUsers.remove(session);
+            onlineCount--;
+            broadcastOnlineCount();
+            broadcastUserList();
+        }
     }
+
     private void broadcastOnlineCount() throws Exception {
         Map<String, Object> jsonMessageMap = new HashMap<>();
         jsonMessageMap.put("type", "onlineCount");
@@ -65,8 +87,19 @@ public class ChatHandler extends TextWebSocketHandler {
 
         String jsonMessage = objectMapper.writeValueAsString(jsonMessageMap);
 
-        for (WebSocketSession webSocketSession : sessions) {
-            webSocketSession.sendMessage(new TextMessage(jsonMessage));
+        for (WebSocketSession session : userSessions.values()) {
+            session.sendMessage(new TextMessage(jsonMessage));
+        }
+    }
+
+    private void broadcastUserList() throws Exception {
+        List<String> onlineUsers = new ArrayList<>(userSessions.keySet());
+        Map<String, Object> userListMessage = new HashMap<>();
+        userListMessage.put("type", "userList");
+        userListMessage.put("users", onlineUsers);
+        String userListMessageStr = objectMapper.writeValueAsString(userListMessage);
+        for (WebSocketSession session : userSessions.values()) {
+            session.sendMessage(new TextMessage(userListMessageStr));
         }
     }
 }

@@ -27,20 +27,26 @@
         }
         #chat {
             flex: 1;
-            padding-top: 10px;
-            padding-right: 10px;
-            padding-left: 10px;
+            padding: 10px;
             border-bottom: 1px solid #ddd;
             overflow-y: scroll;
             display: flex;
             flex-direction: column;
-            height: 500px;
         }
         #message-container {
             display: flex;
             align-items: center;
             padding: 10px;
             background: #fff;
+        }
+        #user-list {
+            flex: 1;
+            margin-right: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            font-size: 14px;
         }
         #message {
             flex: 2;
@@ -50,9 +56,6 @@
             outline: none;
             font-size: 14px;
             margin-right: 10px;
-        }
-        #fileInput {
-            display: none;
         }
         button {
             background: #007bff;
@@ -95,9 +98,11 @@
         .message.right {
             background: #007bff;
             color: white;
+            align-self: flex-end;
         }
         .message.left {
             background: #f1f1f1;
+            align-self: flex-start;
         }
         .image-message img {
             max-width: 100%;
@@ -112,6 +117,9 @@
     <div id="chat"></div>
     <div id="online-count">在线人数: 0</div>
     <div id="message-container">
+        <select id="user-list">
+            <option value="">Broadcast</option>
+        </select>
         <input type="text" id="message" placeholder="Type your message..." />
         <button onclick="sendMessage()">Send</button>
         <button onclick="document.getElementById('fileInput').click()">Send Image</button>
@@ -125,11 +133,14 @@
     const username = userDto.name;
     const chat = document.getElementById('chat');
     const messageInput = document.getElementById('message');
+    const userList = document.getElementById('user-list');
 
     const socket = new WebSocket('ws://localhost:9090/chat');
 
     socket.onmessage = function(event) {
         const data = JSON.parse(event.data);
+        console.log(data);
+
         const messageContainer = document.createElement('div');
         messageContainer.classList.add('message-container');
 
@@ -140,43 +151,50 @@
 
         const messageElement = document.createElement('div');
         messageElement.classList.add('message');
-
-        if (data.type === 'message') {
-            const textElement = document.createElement('div');
-            textElement.textContent = data.message;
-            messageElement.appendChild(textElement);
-
-            if (data.username === username) {
-                messageContainer.classList.add('right');
-                messageElement.classList.add('right');
-            } else {
-                messageContainer.classList.add('left');
-                messageElement.classList.add('left');
-            }
-        } else if (data.type === 'image') {
-            const img = document.createElement('img');
-            img.src = data.image;
-            messageElement.appendChild(img);
-            messageElement.classList.add('image-message');
-
-            if (data.username === username) {
-                messageContainer.classList.add('right');
-                messageElement.classList.add('right');
-            } else {
-                messageContainer.classList.add('left');
-                messageElement.classList.add('left');
-            }
-        }else if (data.type === 'onlineCount') {
+        if (data.type === 'onlineCount') {
             document.getElementById('online-count').textContent = `在线人数: ${data.count}`;
         }
+        if (data.type === 'userList') {
+            updateUserList(data.users);
+        }
+        if (data.type === 'join' || data.type === 'leave') {
+            displaySystemMessage(`${data.username} has ${data.type === 'join' ? 'joined' : 'left'} the chat.`);
+        }
+        if(data.type==='broadcast' ||data.type==='private'){
+            if (data.contentType === 'message') {
+                const textElement = document.createElement('div');
+                textElement.textContent = data.message;
+                messageElement.appendChild(textElement);
 
+                if (data.username === username) {
+                    messageContainer.classList.add('right');
+                    messageElement.classList.add('right');
+                } else {
+                    messageContainer.classList.add('left');
+                    messageElement.classList.add('left');
+                }
+            } else if (data.contentType === 'image') {
+                const img = document.createElement('img');
+                img.src = data.image;
+                messageElement.appendChild(img);
+                messageElement.classList.add('image-message');
+
+                if (data.username === username) {
+                    messageContainer.classList.add('right');
+                    messageElement.classList.add('right');
+                } else {
+                    messageContainer.classList.add('left');
+                    messageElement.classList.add('left');
+                }
+            }
+        }
         messageContainer.appendChild(messageElement);
         chat.appendChild(messageContainer);
         chat.scrollTop = chat.scrollHeight; // 自动滚动到最新消息
     };
 
     socket.onopen = function() {
-        socket.send(JSON.stringify({ type: 'join', userName: username }));
+        socket.send(JSON.stringify({ type: 'join', userId: username }));
     };
 
     socket.onclose = function() {
@@ -189,12 +207,48 @@
 
     function sendMessage() {
         const message = messageInput.value;
+        const targetUserId = userList.value;
 
         if (message.trim() !== '') {
-            const data = { type: 'message', username: username, message: message };
-            socket.send(JSON.stringify(data));
-            messageInput.value = '';
+            if (targetUserId==='') {
+                const data = {
+                    type:  'broadcast',
+                    contentType: 'message',
+                    username: username,
+                    message: message
+                };
+                socket.send(JSON.stringify(data));
+                messageInput.value = '';
+            }else {
+                const data = {
+                    type:  'private',
+                    contentType: 'message',
+                    username:username,
+                    targetUserId: targetUserId,
+                    message: message
+                };
+                socket.send(JSON.stringify(data));
+                messageInput.value = '';
+            }
         }
+    }
+
+    function displaySystemMessage(message) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', 'system');
+        messageElement.textContent = message;
+        chat.appendChild(messageElement);
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+    function updateUserList(users) {
+        userList.innerHTML = '<option value="">Broadcast</option>';
+        users.forEach(user => {
+            const option = document.createElement('option');
+            option.value = user;
+            option.textContent = user;
+            userList.appendChild(option);
+        });
     }
 
     function compressAndSendImage(event) {
@@ -243,7 +297,13 @@
                 const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7); // 70% 的质量压缩
 
                 // 发送压缩后的图片数据
-                const data = { type: 'image', username: username, image: compressedDataUrl };
+                const data = {
+                    type: userList.value ? 'private' : 'broadcast',
+                    contentType: 'image',
+                    targetUserId: userList.value,
+                    username: username,
+                    image: compressedDataUrl
+                };
                 socket.send(JSON.stringify(data));
             };
         };
@@ -254,5 +314,6 @@
     }
     /*]]>*/
 </script>
+
 </body>
 </html>
